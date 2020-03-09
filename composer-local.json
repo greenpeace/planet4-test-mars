@@ -3,9 +3,9 @@
 	"description": "Greenpeace P4 test-mars",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme" : "dev-planet-4745",
-		"greenpeace/planet4-plugin-gutenberg-blocks" : "dev-planet-4745",
-		"greenpeace/planet4-plugin-gutenberg-engagingnetworks" : "dev-planet-4745"
+		"greenpeace/planet4-master-theme" : "dev-develop",
+		"greenpeace/planet4-plugin-gutenberg-blocks" : "dev-develop",
+		"greenpeace/planet4-plugin-gutenberg-engagingnetworks" : "dev-develop"
 	},
 	"data_from": "international",
 	"scripts": {
