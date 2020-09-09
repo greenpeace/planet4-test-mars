@@ -3,7 +3,7 @@
 	"description": "Greenpeace P4 test-mars",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme" : "dev-dashdash",
+		"greenpeace/planet4-master-theme" : "dev-revert-1116-planet-4536",
 		"greenpeace/planet4-child-theme-japan": "dev-master",
 		"greenpeace/planet4-child-theme-newzealand": "dev-master",
 		"greenpeace/planet4-child-theme-nordic": "dev-master",
@@ -22,7 +22,7 @@
 		"greenpeace/planet4-child-theme-hungary": "dev-master",
 		"greenpeace/planet4-child-theme-mena": "dev-master",
 		"greenpeace/planet4-child-theme-netherlands": "dev-master",
-		"greenpeace/planet4-plugin-gutenberg-blocks" : "dev-wysiwyg-vars"
+		"greenpeace/planet4-plugin-gutenberg-blocks" : "dev-master"
 	},
 	"data_from": "international",
 	"scripts": {
