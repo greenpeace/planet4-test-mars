@@ -3,11 +3,9 @@
     "description": "Greenpeace P4 test-mars",
     "license": "MIT",
     "require": {
-        "greenpeace/planet4-master-theme": "dev-planet-5782-test",
+        "greenpeace/planet4-master-theme": "dev-master",
         "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
-        "wpackagist-plugin/contact-form-7": "5.3",
-        "wpackagist-plugin/wpforms-lite": "1.6.3.1",
-        "wpackagist-plugin/wp-stateless": "3.1.*"
+        "wpackagist-plugin/contact-form-7": "5.3.*"
     },
     "data_from": "international",
     "scripts": {
