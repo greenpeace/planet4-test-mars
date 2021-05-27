@@ -1,14 +1,40 @@
 {
-    "name": "greenpeace/planet4-test-mars",
-    "description": "Greenpeace P4 test-mars",
-    "license": "MIT",
-    "require": {
-        "greenpeace/planet4-master-theme": "dev-master",
-        "greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
-        "wpackagist-plugin/contact-form-7": "5.3.*"
-    },
-    "data_from": "international",
-    "scripts": {
-        "site:custom": []
-    }
+	"name": "greenpeace/planet4-test-mars",
+	"description": "Greenpeace P4 test-mars",
+	"license": "MIT",
+	"require": {
+		"greenpeace/planet4-master-theme": "7",
+		"greenpeace/planet4-plugin-gutenberg-blocks": "dev-master",
+		"wpackagist-plugin/contact-form-7": "5.3.*"
+	},
+	"data_from": "international",
+	"scripts": {
+		"site:custom": []
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "greenpeace/planet4-master-theme",
+				"type": "wordpress-theme",
+				"autoload": {
+					"psr-4": {
+						"P4\\MasterTheme\\": "src/"
+					}
+				},
+				"extra": {
+					"installer-paths": {
+						"vendor/plugins/{$name}/": [
+							"type:wordpress-plugin"
+						]
+					}
+				},
+				"version": 7,
+				"dist": {
+					"type": "zip",
+					"url": "https://storage.googleapis.com/planet4-packages/planet4-master-theme/92d9aa3c54018cd667bb49296a1953773431089a.zip"
+				}
+			}
+		}
+	]
 }
