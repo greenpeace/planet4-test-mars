@@ -12,7 +12,7 @@
 	},
 	"repositories": [
 		{
-			"type": "package",
+			"type": "package", 
 			"package": {
 				"name": "greenpeace/planet4-master-theme",
 				"type": "wordpress-theme",
