@@ -3,11 +3,37 @@
 	"description": "Greenpeace P4 test-mars",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme": "dev-replace-covers-block-with-query-loop",
+		"greenpeace/planet4-master-theme": "7",
 		"greenpeace/planet4-plugin-gutenberg-blocks": "dev-PLANET-7007_replace-covers-block-with-query-loop"
 	},
 	"data_from": "international",
 	"scripts": {
 		"site:custom": []
-	}
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "greenpeace/planet4-master-theme",
+				"type": "wordpress-theme",
+				"autoload": {
+					"psr-4": {
+						"P4\\MasterTheme\\": "src/"
+					}
+				},
+				"extra": {
+					"installer-paths": {
+						"vendor/plugins/{$name}/": [
+							"type:wordpress-plugin"
+						]
+					}
+				},
+				"version": 7,
+				"dist": {
+					"type": "zip",
+					"url": "https://storage.googleapis.com/planet4-packages/planet4-master-theme/c6a707156d58e0fb476e5f702416644924c714f9.zip"
+				}
+			}
+		}
+	]
 }
