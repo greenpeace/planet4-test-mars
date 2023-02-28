@@ -157,6 +157,44 @@ jobs:
       <<: *develop_environment
     <<: *deploy_steps
 
+  create-test-user:
+    docker:
+      - image: greenpeaceinternational/p4-builder:expand
+        auth:
+          <<: *docker_auth
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    steps:
+      - run:
+          name: Create test user
+          command: ./src/bin/test_account_add.sh
+      - run:
+          name: Unhold e2e test job
+          command: |
+            UNHOLD_WORKFLOW_LINE=$(git --git-dir=/home/circleci/checkout/.git log --format=%B -n 1 "$CIRCLE_SHA1" | { grep '^\/unhold ' || true; } )
+            echo "line $UNHOLD_WORKFLOW_LINE"
+            if [[ -n $UNHOLD_WORKFLOW_LINE ]]; then
+              WORKFLOW_ID=${UNHOLD_WORKFLOW_LINE#"/unhold "}
+              echo "$WORKFLOW_ID"
+              echo $WORKFLOW_ID > /tmp/workspace/approve_workflow
+            fi
+      - approve_job:
+          job_name: test-user-ready
+
+  delete-test-user:
+    docker:
+      - image: greenpeaceinternational/p4-builder:expand
+        auth:
+          <<: *docker_auth
+    environment:
+      <<: *common_environment
+      <<: *develop_environment
+    steps:
+      - run:
+          name: Delete test user
+          command: /home/circleci/src/bin/test_account_remove.sh
+
 workflow_definitions:
   on_develop_commit: &on_develop_commit
     context: org-global
@@ -173,3 +211,15 @@ workflows:
           <<: *on_develop_commit
           requires:
             - build-develop
+  test-user:
+    jobs:
+      - create-test-user:
+          context: org-global
+          filters:
+            branches:
+              only: test-user
+      - delete-test-user:
+          context: org-global
+          filters:
+            branches:
+              only: test-user-delete
