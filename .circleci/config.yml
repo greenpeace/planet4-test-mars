@@ -9,7 +9,6 @@ parameters:
   run_develop:
     default: true
     type: boolean
-
   run_create_test_user:
     default: false
     type: boolean
@@ -172,11 +171,10 @@ jobs:
       <<: *common_environment
       <<: *develop_environment
     <<: *deploy_steps
-
   create-test-user:
     working_directory: ~/
     docker:
-      - image: greenpeaceinternational/p4-builder:expand
+      - image: greenpeaceinternational/p4-builder:latest
         auth:
           <<: *docker_auth
     environment:
@@ -206,7 +204,7 @@ jobs:
   delete-test-user:
     working_directory: ~/
     docker:
-      - image: greenpeaceinternational/p4-builder:expand
+      - image: greenpeaceinternational/p4-builder:latest
         auth:
           <<: *docker_auth
     environment:
@@ -245,6 +243,7 @@ workflows:
     jobs:
       - create-test-user:
           context: org-global
+
   delete-test-user:
     when: << pipeline.parameters.run_delete_test_user >>
     jobs:
