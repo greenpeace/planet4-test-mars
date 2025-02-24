@@ -3,7 +3,7 @@
 	"description": "Greenpeace P4 test-mars",
 	"license": "MIT",
 	"require": {
-		"greenpeace/planet4-master-theme": "dev-main",
+		"greenpeace/planet4-master-theme": "dev-PLANET-7511-migrate_articles_block",
 		"greenpeace/planet4-plugin-gutenberg-blocks": "dev-main"
 	}
 }
